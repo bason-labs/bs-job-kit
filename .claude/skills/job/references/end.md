@@ -4,7 +4,7 @@
    tool that was not available, anything the next run would otherwise find again
    ([files.md](files.md#context)). Nothing new: write nothing.
 2. **Cost**, the last step before the commit:
-   `node bin/cost.mjs --host <claude|codex> --since <start time> --marker <run marker> --project . --record . --log logs --request "<the request, one line>" --tickets <job ids that got a CV>`,
+   `bs-job cost --host <claude|codex> --since <start time> --marker <run marker> --project . --record . --log logs --request "<the request, one line>" --tickets <job ids that got a CV>`,
    with the marker and start time from step 0 (every request that does work starts with step 0)
    and `--tickets` as one comma-separated list without spaces (`id-a,id-b`); leave `--tickets` out
    when no job got a CV. Each job's `cost:` line adds up across runs.
@@ -39,5 +39,5 @@
    <tokens> tokens, <usd or "unpriced"> · log: [logs/<marker>.json](../logs/<marker>.json)
    ```
 
-4. `node bin/jobs.mjs board`, then commit everything (`jobs/`, `context/`, `reports/`, `logs/`,
+4. `bs-job jobs board`, then commit everything (`jobs/`, `context/`, `reports/`, `logs/`,
    `cost.md`) with a one-line message naming the request.

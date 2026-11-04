@@ -10,6 +10,13 @@ look for (`profile.yaml`), how jobs and CVs are scored (`criteria.md`), every jo
 (`jobs/`), what was learned (`context/`) and what each run cost (`cost.md`). There is no app: the
 chat is the interface. Read only the reference a step needs.
 
+## The program
+
+Every script step runs the program `bs-job` at the repo root: `./bs-job <command> ...` on macOS,
+`.\bs-job.exe <command> ...` on Windows (written `bs-job <command>` in these files). Commands:
+`clock`, `jobs`, `cost`, `cv-pdf`, `pdf-text`, `figma-pdf`, `version`. Run it from the repo root.
+In a source checkout without the program, run `node bin/bs-job.mjs <command> ...` instead.
+
 ## Setup comes first
 
 For **every** request, before anything else: if `master-cv.yaml` has no facts, or `profile.yaml`
@@ -18,7 +25,7 @@ It resumes where it stopped.
 
 ## A run ("find jobs ...")
 
-0. **Start the clock first**, before reading anything: run `node bin/clock.mjs` (it prints
+0. **Start the clock first**, before reading anything: run `bs-job clock` (it prints
    `{"marker","start"}`: the run marker and the start time); keep both for the cost step.
 1. **Read memory:** `profile.yaml`, `criteria.md`, `context/index.md`, `jobs/index.md`.
 2. **Capture what the owner said** ([capture.md](references/capture.md)) before anything else.
@@ -30,7 +37,7 @@ It resumes where it stopped.
 6. **End:** learned facts, cost, report, commit ([end.md](references/end.md)).
 
 Never skipped: capturing what the owner said, the evaluator for every CV, recording what the run learned,
-the cost step. A step whose tool is missing (Claude in Chrome not connected, `bin/figma-pdf.mjs`
+the cost step. A step whose tool is missing (Claude in Chrome not connected, `bs-job figma-pdf`
 answering `figma-unavailable`) is skipped and reported, and the run continues with the rest: a
 scheduled run with nobody watching still stores what it could.
 

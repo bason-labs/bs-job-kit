@@ -9,7 +9,7 @@ answer something:
    ---
    type: question
    job: <job id or none>
-   created: <ISO time from node bin/clock.mjs>
+   created: <ISO time from bs-job clock>
    ---
    **Question:** <one sentence>
 

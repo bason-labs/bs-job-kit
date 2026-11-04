@@ -29,7 +29,7 @@ below comes from vendor blogs and not from a study, it says so.
 - **One A4 page.** With 4+ years this is right in every market. UK and Australian norms allow two
   pages, but one page is never wrong.
 - **One reading order.** The requirement is that the PDF text reads in one order (top to bottom, left
-  column before right), checked with `node bin/pdf-text.mjs --expect`. A single column is safest:
+  column before right), checked with `bs-job pdf-text --expect`. A single column is safest:
   foreign companies almost always use one (Greenhouse, Lever, Workday, Ashby, Workable). The owner's
   chosen layout is always used. Layouts B and C (sidebar and band) keep one reading order but look
   two-column and can parse worse in some ATS; setup warns about this when one is chosen.

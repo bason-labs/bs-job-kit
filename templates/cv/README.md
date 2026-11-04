@@ -4,7 +4,7 @@ The automatic PDF route turns a CV's data (`jobs/<id>/cv-<lang>.json`) into HTML
 and prints it to an A4 PDF with headless Chrome or Edge:
 
 ```bash
-node bin/cv-pdf.mjs --data jobs/<id>/cv-en.json --out jobs/<id>/cv-en.pdf [--layout sidebar] [--chrome <path>]
+bs-job cv-pdf --data jobs/<id>/cv-en.json --out jobs/<id>/cv-en.pdf [--layout sidebar] [--chrome <path>]
 ```
 
 The layout defaults to `cvLayout` and the browser to `chromePath` in `profile.yaml`. The HTML is
@@ -48,7 +48,7 @@ the four layouts side by side.
 - `side: true` marks a short section (skills, languages, links). `sidebar` and `band` put these
   in their narrow column; `classic` and `timeline` put them at the end.
 
-`bin/cv-pdf.mjs` checks the data first and reports every problem as `bad-data`.
+`bs-job cv-pdf` checks the data first and reports every problem as `bad-data`.
 
 ## Reading order
 
@@ -58,7 +58,7 @@ sections, whatever the order in the data. Columns are placed with CSS grid areas
 side sections earlier in the HTML. Check a PDF with:
 
 ```bash
-node bin/pdf-text.mjs cv-en.pdf --expect "Jane Nguyễn|Summary|Experience|Skills"
+bs-job pdf-text cv-en.pdf --expect "Jane Nguyễn|Summary|Experience|Skills"
 ```
 
 ## Writing your own layout

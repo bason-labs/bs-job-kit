@@ -35,7 +35,7 @@ apply to every route.
 - Write `jobs/<id>/cv-<lang>.json` (shape in `templates/cv/README.md`), one per language. `name`
   and `contact` come from `master-cv.yaml` `contact` (`name`; `contact` is email, phone, location,
   then `contact.links`), never from memory. The layout is `cvLayout` (a name or a `./path.mjs`).
-- Run `node bin/cv-pdf.mjs --data jobs/<id>/cv-<lang>.json --out jobs/<id>/cv-<lang>.pdf`. It
+- Run `bs-job cv-pdf --data jobs/<id>/cv-<lang>.json --out jobs/<id>/cv-<lang>.pdf`. It
   prints `{out, html, bytes, pages, sha256, name}` or `{error, detail}`. Keep its JSON for the
   evaluator.
 - `chrome-not-found`: skip the CV step and report it (`chromePath` in profile.yaml can name the
@@ -63,7 +63,7 @@ apply to every route.
   explicitly as `{family, style}` before changing text. Normalise whitespace in the text you write.
   A `bad-reply` error means retry after a few seconds.
 - Check with `figma_capture_screenshot` before exporting.
-- Export: `node bin/figma-pdf.mjs --frame <frame id> --out jobs/<id>/cv-<lang>.pdf` prints the
+- Export: `bs-job figma-pdf --frame <frame id> --out jobs/<id>/cv-<lang>.pdf` prints the
   file's facts (`pages`, `bytes`, `sha256`, `name`) or an error; keep its output for the evaluator.
   `figma-unavailable`: skip and report. `not-in-drafts`: you edited the wrong frame; fix that first.
   `no-file-key`: set `figmaFileKey` in `profile.yaml`.
@@ -72,7 +72,7 @@ apply to every route.
 
 - Follow the instruction in `cvCustom` (profile.yaml) in plain words. End with a PDF at
   `jobs/<id>/cv-<lang>.pdf`.
-- Get its facts with `node bin/pdf-text.mjs jobs/<id>/cv-<lang>.pdf` (it prints `bytes`, `sha256`,
+- Get its facts with `bs-job pdf-text jobs/<id>/cv-<lang>.pdf` (it prints `bytes`, `sha256`,
   `pages` and the text); keep that for the evaluator.
 - If the instruction cannot be followed with the tools at hand, skip the CV step and report it.
 
@@ -84,13 +84,13 @@ apply to every route.
   technologies are one text node (styles by range), never separate boxes.
 - You may change section order, emphasis and which projects appear; fonts, colours and spacing
   follow the layout or `cv-rules.md`. The owner's chosen `cvLayout` is always used. The requirement is one
-  reading order, checked with `node bin/pdf-text.mjs --expect` (see the Order check), not one
+  reading order, checked with `bs-job pdf-text --expect` (see the Order check), not one
   column ([cv-playbook.md](cv-playbook.md)).
 
 ## Order check (every route)
 
 After the PDF exists, run
-`node bin/pdf-text.mjs <pdf> --expect "<name>|<summary start>|<first heading>|…"`
+`bs-job pdf-text <pdf> --expect "<name>|<summary start>|<first heading>|…"`
 with the strings in reading order. It exits 1 with `outOfOrder` or `missing` when the text does not
 read in order: fix the CV and export again. `pdf-unreadable` counts as a failed export.
 

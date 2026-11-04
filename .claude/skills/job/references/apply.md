@@ -16,7 +16,7 @@ never as part of a scan. Applying never guesses: when something is missing, stop
 6. Screenshot the filled form into `jobs/<id>/evidence/`.
 7. Tick the personal-data consent box (their request covers it) and submit **once**.
 8. Screenshot the confirmation into `jobs/<id>/evidence/`, close every tab you opened, set
-   `status: applied` and `applied: <today>`, run `node bin/jobs.mjs board`, commit.
+   `status: applied` and `applied: <today>`, run `bs-job jobs board`, commit.
 
 ## Filling the form
 

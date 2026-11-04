@@ -31,7 +31,7 @@ Ordinary calls to action for human candidates ("Apply now", "send your CV to hr@
 ## Each posting
 
 1. Dedupe first, from the listing card, before opening the posting:
-   `node bin/jobs.mjs known --check "<url>" "<company>" "<title>"` answers `{"known":true,...}` or
+   `bs-job jobs known --check "<url>" "<company>" "<title>"` answers `{"known":true,...}` or
    `{"known":false}` (it normalises the URL, the case and the spaces itself). Known: skip it
    (counted as "already known"); do not open it again.
 2. A posting that does not match `profile.yaml` at all (another role, an excluded company or

@@ -5,7 +5,7 @@
 `<id>` = `<yyyy-mm-dd found>-<company slug>-<title slug>`, lowercase ASCII with dashes.
 
 `README.md` starts with this frontmatter (one `key: value` per line; values are plain, `null`, or a
-one-line `{ k: v, ... }`; `bin/jobs.mjs` reads exactly this):
+one-line `{ k: v, ... }`; `bs-job jobs` reads exactly this):
 
 ```yaml
 ---
@@ -37,7 +37,7 @@ Statuses: `ready` (fit ≥ threshold), `below-threshold`, `applied`, `rejected` 
 them down after they applied; `applied` keeps its date), `skipped`, `cv-failed`.
 "I applied to X" → `status: applied`, `applied: <today>`. "X rejected me" → `status: rejected` and
 a dated note with what the company said. "Skip X" → `status: skipped` and a dated
-note with their reason. After any change: `node bin/jobs.mjs board` (rewrites `jobs/index.md`;
+note with their reason. After any change: `bs-job jobs board` (rewrites `jobs/index.md`;
 never edit that file by hand), then commit.
 
 ## Context
