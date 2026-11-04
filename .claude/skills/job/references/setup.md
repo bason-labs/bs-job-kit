@@ -29,8 +29,8 @@ what they say as [capture.md](capture.md) describes. Work in this order.
    | TopCV, VietnamWorks | `topcv`, `vietnamworks` | Vietnam |
    | StepStone (DE), Reed and Totaljobs (UK), Indeed (US), Seek (AU), MyCareersFuture (SG) | its search URL | examples elsewhere |
 
-5. **Their links.** Ask for LinkedIn, portfolio, GitHub and website; put each in `contact.links`
-   of `master-cv.yaml`.
+5. **Their links.** Ask once: "Send any links you have (LinkedIn, portfolio, GitHub, website)." Or
+   ask for one link per message. Put each in `contact.links` of `master-cv.yaml`.
 6. **How CVs are made** (`cvRoute`). Ask which they want:
    - **Automatic PDF** (default, `pdf`): needs Chrome or Edge. Check it by running
      `node bin/cv-pdf.mjs --data templates/cv/sample.json --out <a temporary pdf>`; on
@@ -43,17 +43,22 @@ what they say as [capture.md](capture.md) describes. Work in this order.
      contact, the summary and each section, so [cv.md](cv.md) can fill them.
    - **Their own way** (`custom`): ask how they want their CVs made, and put their words verbatim
      into `cvCustom`.
-7. **The design.** Ask: "Do you have a CV design to copy? Any file works (PDF, image, Figma link)."
-   - **Yes, on `pdf`:** write `cv-template.mjs` recreating its look (the custom layout shape is in
-     `templates/cv/README.md`), set `cvLayout: ./cv-template.mjs`, render
-     `templates/cv/sample.json` with it, show them the PDF, and adjust until they are happy.
-   - **Yes, on `figma`:** use their frame as the template; no layout file.
-   - **No:** ask them to open `templates/cv/previews.html` (give its absolute path), pick A
-     classic, B sidebar, C band or D timeline, and set `cvLayout`. For B or C add the ATS note:
-     two-column and banded layouts can be read out of order by automatic CV screening, so
-     classic is safer when most applications go through such systems ([cv-playbook.md](cv-playbook.md)).
-8. **CV languages.** Ask which languages their CVs need (`cvLanguages`) and for which job
-   languages to also make a CV in the job's language (`cvJdLanguages`).
+7. **The design.** Depends on the route from step 6.
+   - **`figma`:** the template frame was collected in step 6, so do not ask again. Record the
+     text-node map in `cv-rules.md`; no layout file, no `cvLayout`.
+   - **`custom`:** no layout choice. Record any design notes they give, together with their
+     `cvCustom` instruction.
+   - **`pdf`:** ask: "Do you have a CV design to copy? Any file works (PDF, image, Figma link)."
+     - **Yes:** write `cv-template.mjs` recreating its look (the custom layout shape is in
+       `templates/cv/README.md`), set `cvLayout: ./cv-template.mjs`, render
+       `templates/cv/sample.json` with it, show them the PDF, and adjust until they are happy.
+     - **No:** ask them to open `templates/cv/previews.html` (give its absolute path), pick A
+       classic, B sidebar, C band or D timeline, and set `cvLayout`. For B or C add the ATS note:
+       two-column and banded layouts can be read out of order by automatic CV screening, so
+       classic is safer when most applications go through such systems ([cv-playbook.md](cv-playbook.md)).
+8. **CV languages.** Two messages. First ask which languages their CVs need (`cvLanguages`). Then,
+   after the answer, ask for which job languages to also make a CV in the job's language
+   (`cvJdLanguages`).
 9. **The scoring rules.** Show them the starter `criteria.md` in plain words and offer
    field-specific tweaks (weights, must-haves, dealbreakers). Record each change as a version bump
    with a `## Changes` line ([capture.md](capture.md)).
