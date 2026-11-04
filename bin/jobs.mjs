@@ -117,7 +117,7 @@ export const renderBoard = ({ jobs, unreadable }) => {
   return parts.join("\n");
 };
 
-const main = (argv) => {
+export const main = (argv) => {
   const cmd = argv[0];
   const i = argv.indexOf("--root");
   const root = resolve(i > 0 ? argv[i + 1] : ".");
@@ -138,7 +138,7 @@ const main = (argv) => {
       keys: data.jobs.map((j) => jobKey(j.company, j.title)),
     }));
   } else {
-    console.error("usage: node bin/jobs.mjs board|known [--root <dir>]");
+    console.error("usage: bs-job jobs board|known [--root <dir>]");
     process.exit(2);
   }
 };

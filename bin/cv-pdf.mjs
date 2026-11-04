@@ -13,7 +13,8 @@ import { pdfFacts } from "./lib/pdf.mjs";
 import { readProfile } from "./lib/profile.mjs";
 import { validateCv } from "../templates/cv/lib.mjs";
 
-const kit = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+// The repo root: set by bin/bs-job.mjs (next to the compiled program), else the parent of bin/.
+const kit = globalThis.BS_JOB_KIT ?? path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 const args = {};
 const argv = process.argv.slice(2);

@@ -9,13 +9,19 @@ server, nothing to host.
 
 Works on macOS and Windows.
 
-1. Install **Node 22+**, **Git**, and **Chrome** (or Edge).
-2. Open a terminal in this folder and start **Claude Code** there (`cd bs-job-kit`, then `claude`).
+1. Unzip the release for your computer: `macos-apple-silicon` (M1 and later), `macos-intel`, or
+   `windows-x64`. The folder holds the program `bs-job` (`bs-job.exe` on Windows) and readable
+   files. The first time only:
+   - **macOS:** the program is not signed by Apple. In a terminal in the folder run
+     `xattr -dr com.apple.quarantine .` once, or macOS blocks it.
+   - **Windows:** if SmartScreen warns about `bs-job.exe`, choose **More info**, then **Run anyway**.
+2. Install **Git** and **Chrome** (or Edge). Node is not needed to use a release.
+3. Open a terminal in this folder and start **Claude Code** there (`cd bs-job-kit`, then `claude`).
    Start it inside the folder, or the session misses `.mcp.json`. Accept the trust prompt once, so
    `.claude/settings.json` applies. (Codex: `codex` in the same folder; it does what its tools allow
    and says what it skipped.)
-3. Connect **Claude in Chrome**, so the job sites you are logged in to can be read.
-4. **Figma desktop** is needed only if you choose the Figma route for CVs: open your CV file and
+4. Connect **Claude in Chrome**, so the job sites you are logged in to can be read.
+5. **Figma desktop** is needed only if you choose the Figma route for CVs: open your CV file and
    start **Plugins, Development, Figma Desktop Bridge**. The default route makes PDFs with Chrome
    and needs no Figma. On **Windows**, the Figma server in `.mcp.json` must start through `cmd`:
    replace its entry with
@@ -62,22 +68,26 @@ any time in plain words. Applying is the exception: it asks.
 
 ## Share it
 
-To give someone a copy, copy this repo before you run setup in it. A copy made after setup carries
-your facts, jobs and CVs.
+Give someone the release zip for their computer, untouched. A folder you have already run setup in
+carries your facts, jobs and CVs.
 
-## Windows check
+## Check a release
 
-Windows ran only through unit tests here. On a Windows machine, check by hand:
+On a new computer, before the first search:
 
-1. Install Node 22+, Git and Chrome (or Edge); open a terminal in this folder.
-2. `npm test` passes.
-3. `node bin/cv-pdf.mjs --data templates/cv/sample.json --out %TEMP%\test.pdf` (macOS: `$TMPDIR/test.pdf`)
-   writes a one-page PDF there.
-4. Start `claude` in the folder and say "find jobs": it begins setup.
+1. In the folder: `./bs-job version` (macOS) or `.\bs-job.exe version` (Windows) prints the version.
+2. `./bs-job cv-pdf --data templates/cv/sample.json --out $TMPDIR/test.pdf` (Windows:
+   `.\bs-job.exe cv-pdf --data templates\cv\sample.json --out %TEMP%\test.pdf`) writes a one-page PDF.
+3. Start `claude` in the folder and say "find jobs": it begins setup.
 
-## Develop
+## Develop (source checkout)
+
+Needs Node 22+; building releases also needs [Bun](https://bun.sh).
 
 ```
-npm test         # node --test, no dependencies
-npm run check    # leftover wording, owner wording, frontmatter, broken links
+npm test          # node --test, no dependencies
+npm run check     # leftover wording, owner wording, frontmatter, broken links
+npm run release   # compiles bin/ into bs-job for macOS (Apple, Intel) and Windows, writes release/*.zip
 ```
+
+In a source checkout the skill's `bs-job <command>` runs as `node bin/bs-job.mjs <command>`.

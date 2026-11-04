@@ -3,3 +3,8 @@ node_modules/
 .state/
 *.mp4
 .superpowers/
+dist/
+release/
+/bs-job
+/bs-job.exe
+*.bun-build

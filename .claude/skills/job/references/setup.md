@@ -16,6 +16,8 @@ version. When unsure whether a step was answered, ask it again briefly. Done mea
 
 1. **Say that setup comes first**: "Before I can search I need to learn about you: your CV, what
    you look for, where to look and how your CVs should look. It takes a few minutes."
+   If this folder is not a git repository yet (`git status` fails), run `git init`: every run
+   commits its results.
 2. **Their CV or job title.** Ask for their CV (any format: PDF, Word, text, a LinkedIn export, or
    just pasted) and/or the job title they want. Save the original under `references/` (a file
    verbatim, a paste as text). Read it into facts in `master-cv.yaml`: only what the CV states,
@@ -46,7 +48,7 @@ version. When unsure whether a step was answered, ask it again briefly. Done mea
    Put each in `contact.links` of `master-cv.yaml`.
 6. **How CVs are made** (`cvRoute`). Ask which they want:
    - **Automatic PDF** (default, `pdf`): needs Chrome or Edge. Check it by running
-     `node bin/cv-pdf.mjs --data templates/cv/sample.json --out <a temporary pdf>`; on
+     `bs-job cv-pdf --data templates/cv/sample.json --out <a temporary pdf>`; on
      `chrome-not-found` ask for the browser's path and set `chromePath`.
    - **Figma** (`figma`): ask for the file key (`figmaFileKey`, the part of the file URL after
      `/design/`) and the name of the template frame. Explain that tailored CVs are made on the

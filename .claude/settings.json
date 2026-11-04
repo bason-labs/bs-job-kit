@@ -6,6 +6,7 @@
     "allow": [
       "Bash(git:*)",
       "Bash(node bin/jobs.mjs:*)",
+      "Bash(node bin/bs-job.mjs:*)",
       "Bash(node bin/figma-pdf.mjs:*)",
       "Bash(node bin/cost.mjs:*)",
       "Bash(node bin/cv-pdf.mjs:*)",
