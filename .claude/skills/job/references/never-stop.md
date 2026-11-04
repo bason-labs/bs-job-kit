@@ -1,7 +1,5 @@
 # Never stop
 
-Sources: adapted from bs-vtc-lite skills/vtc-lite/references/never-stop.md.
-
 No step of a run waits for the owner. When their request, `context/`, `profile.yaml` or the facts do not
 answer something:
 

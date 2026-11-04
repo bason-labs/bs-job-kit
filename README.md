@@ -17,7 +17,9 @@ Works on macOS and Windows.
 3. Connect **Claude in Chrome**, so the job sites you are logged in to can be read.
 4. **Figma desktop** is needed only if you choose the Figma route for CVs: open your CV file and
    start **Plugins, Development, Figma Desktop Bridge**. The default route makes PDFs with Chrome
-   and needs no Figma.
+   and needs no Figma. On **Windows**, the Figma server in `.mcp.json` must start through `cmd`:
+   replace its entry with
+   `"command": "cmd", "args": ["/c","npx","-y","figma-console-mcp@1.40.9"]`.
 
 ## First use
 
@@ -69,7 +71,8 @@ Windows ran only through unit tests here. On a Windows machine, check by hand:
 
 1. Install Node 22+, Git and Chrome (or Edge); open a terminal in this folder.
 2. `npm test` passes.
-3. `node bin/cv-pdf.mjs --data templates/cv/sample.json --out test.pdf` writes a one-page `test.pdf`.
+3. `node bin/cv-pdf.mjs --data templates/cv/sample.json --out %TEMP%\test.pdf` (macOS: `$TMPDIR/test.pdf`)
+   writes a one-page PDF there.
 4. Start `claude` in the folder and say "find jobs": it begins setup.
 
 ## Develop

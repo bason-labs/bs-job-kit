@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Print a PDF's page count and text, or check that expected phrases appear in order.
-//   node bin/pdf-text.mjs <pdf>                      -> {"pages":n,"text":"..."}
-//   node bin/pdf-text.mjs <pdf> --expect "A|B|C"     -> {"pages":n,"inOrder":bool,"missing":[...],"outOfOrder":[...]}
+//   node bin/pdf-text.mjs <pdf>                      -> {"bytes":n,"sha256":"...","pages":n,"text":"..."}
+//   node bin/pdf-text.mjs <pdf> --expect "A|B|C"     -> {"bytes":n,"sha256":"...","pages":n,"inOrder":bool,"missing":[...],"outOfOrder":[...]}
 // Exits 1 when not in order, or with {"error":"pdf-unreadable","detail":"..."} when the file cannot be read.
 import { readFileSync } from "node:fs";
 import { pdfFacts, pdfText, textOrder } from "./lib/pdf.mjs";
@@ -17,12 +17,12 @@ if (!file || (at >= 0 && expect === undefined)) {
 
 const print = (obj) => process.stdout.write(`${JSON.stringify(obj)}\n`);
 
-let pages;
+let facts;
 let text;
 try {
   const bytes = readFileSync(file);
-  pages = pdfFacts(bytes).pages;
-  if (!pages) throw new Error("no pages found");
+  facts = pdfFacts(bytes);
+  if (!facts.pages) throw new Error("no pages found");
   text = pdfText(bytes).join("\n\n");
 } catch (err) {
   print({ error: "pdf-unreadable", detail: err.message });
@@ -30,9 +30,9 @@ try {
 }
 
 if (expect === undefined) {
-  print({ pages, text });
+  print({ bytes: facts.bytes, sha256: facts.sha256, pages: facts.pages, text });
 } else {
   const result = textOrder(text, expect.split("|").filter((s) => s.trim()));
-  print({ pages, ...result });
+  print({ bytes: facts.bytes, sha256: facts.sha256, pages: facts.pages, ...result });
   if (!result.inOrder) process.exitCode = 1;
 }

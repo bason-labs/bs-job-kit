@@ -1,7 +1,5 @@
 Vietnam only; setup suggests it only to people in Vietnam.
 
-Sources: adapted from bs-job-agents bots/research/skills/source-topcv/SKILL.md.
-
 # TopCV (topcv.vn)
 
 Read-only. Search and job pages load with plain `curl` (browser user agent). Never click "Ứng tuyển", "Lưu tin", log in or fill anything. Selectors below are **hints observed 2026-10**; the visible labels matter more than class names.

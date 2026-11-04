@@ -1,4 +1,6 @@
 # What the owner looks for. Edited by asking in chat (the job skill's capture step).
+# false until first-use setup finishes (setup.md step 10 sets it to true).
+setupDone: false
 roles: []
 locations: []
 workModes: []

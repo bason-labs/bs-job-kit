@@ -1,7 +1,5 @@
 # Scan and score
 
-Sources: adapted from bs-job-agents bots/research/ROLE.md.
-
 ## Browsing rules
 
 - **Read only.** Never fill in forms, click apply, sign up, log in, post, follow, connect, message

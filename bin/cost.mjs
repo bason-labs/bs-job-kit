@@ -1,10 +1,10 @@
-// Token and cost recorder for one VTC Lite run. Reads the host's own session logs; no install.
+// Token and cost recorder for one job-search run. Reads the host's own session logs; no install.
 //   node bin/cost.mjs --host claude|codex --since <ISO> [--until <ISO>] [--project <dir>]
 //     [--home <dir>] [--marker <text>] [--record <dir>] [--log <dir>] [--request <text>] [--tickets <job id,job id>]
 // --log writes the run's totals, per model and per role, to <dir>/<marker>.json.
 // --marker keeps only the Claude Code session whose log contains that text (the run prints it at
 // its start), plus that session's subagents, so other sessions in the same folder are not counted.
-// Prints JSON totals. With --record, appends a row to <vtc-dir>/cost.md and splits the run's
+// Prints JSON totals. With --record, appends a row to <project-dir>/cost.md and splits the run's
 // tokens and dollars evenly across the jobs' `cost:` lines. Missing logs: {"measured":false}.
 import { appendFileSync, existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
@@ -62,7 +62,7 @@ const jsonl = (dir, keep) =>
     : [];
 const lines = (file) =>
   readFileSync(file, "utf8")
-    .split("\n")
+    .split(/\r?\n/)
     .flatMap((l) => {
       try {
         return l ? [JSON.parse(l)] : [];
@@ -92,7 +92,7 @@ const dollars = (model, t) => {
 };
 
 const models = {};
-const roles = {}; // "lead" for the main session, else the subagent's type without "vtc-lite-"
+const roles = {}; // "lead" for the main session, else the subagent's type
 const add = (model, t, role = "lead", calls = 1) => {
   const cost = dollars(model, t);
   for (const [bucket, key] of [[models, model], [roles, role]]) {
@@ -106,7 +106,7 @@ const roleOf = (file) => {
   const meta = file.replace(/\.jsonl$/, ".meta.json");
   if (!existsSync(meta)) return "lead";
   try {
-    return (JSON.parse(readFileSync(meta, "utf8")).agentType ?? "subagent").replace(/^vtc-lite-/, "");
+    return (JSON.parse(readFileSync(meta, "utf8")).agentType ?? "subagent");
   } catch {
     return "subagent";
   }

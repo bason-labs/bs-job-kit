@@ -38,6 +38,8 @@ test("CLI prints pages and text", () => {
   const out = JSON.parse(r.stdout);
   assert.equal(out.pages, 1);
   assert.match(out.text, /Jane Nguyễn/);
+  assert.equal(out.bytes, readFileSync(fx("pdf/order.pdf")).length);
+  assert.match(out.sha256, /^[0-9a-f]{64}$/);
 });
 
 test("CLI --expect exits 1 when out of order", () => {
@@ -49,7 +51,10 @@ test("CLI --expect exits 1 when out of order", () => {
 test("CLI --expect exits 0 when in order", () => {
   const r = spawnSync(process.execPath, [script, fx("pdf/order.pdf"), "--expect", "Summary|Experience|Skills"], { encoding: "utf8" });
   assert.equal(r.status, 0, r.stderr);
-  assert.deepEqual(JSON.parse(r.stdout), { pages: 1, inOrder: true, missing: [], outOfOrder: [] });
+  const out = JSON.parse(r.stdout);
+  assert.match(out.sha256, /^[0-9a-f]{64}$/);
+  assert.equal(out.bytes, readFileSync(fx("pdf/order.pdf")).length);
+  assert.deepEqual({ ...out, bytes: 0, sha256: "" }, { bytes: 0, sha256: "", pages: 1, inOrder: true, missing: [], outOfOrder: [] });
 });
 
 test("CLI on a non-PDF reports pdf-unreadable", () => {

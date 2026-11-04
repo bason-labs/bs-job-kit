@@ -1,6 +1,6 @@
 ---
 name: job
-description: "bs-job-lite: find jobs that fit the owner, score every one, tailor up to maxCvs CVs in Figma, have a fresh evaluator score each CV, and report; also status, list jobs below threshold, make a CV for a job, I applied to a job, apply to a job for me, change the criteria, cost. Use for every request in this repository."
+description: "bs-job-kit: first-use setup (the owner's CV, what they look for, sources, how CVs are made); find and score jobs; tailor up to maxCvs CVs per run (automatic PDF, Figma, or the owner's own way) and have a fresh evaluator score each; also status, list jobs below threshold, make a CV for a job, I applied to a job, apply to a job for me, change the criteria, cost. Use for every request in this repository."
 ---
 
 # Job search
@@ -10,12 +10,17 @@ look for (`profile.yaml`), how jobs and CVs are scored (`criteria.md`), every jo
 (`jobs/`), what was learned (`context/`) and what each run cost (`cost.md`). There is no app: the
 chat is the interface. Read only the reference a step needs.
 
+## Setup comes first
+
+For **every** request, before anything else: if `master-cv.yaml` has no facts, or `profile.yaml`
+`setupDone` is not `true`, run setup ([setup.md](references/setup.md)) instead, whatever was asked.
+It resumes where it stopped.
+
 ## A run ("find jobs ...")
 
 0. **Start the clock first**, before reading anything: run `node bin/clock.mjs` (it prints
    `{"marker","start"}`: the run marker and the start time); keep both for the cost step.
-1. **Read memory:** `profile.yaml`, `criteria.md`, `context/index.md`, `jobs/index.md`. If `master-cv.yaml` has no
-   facts, run setup ([setup.md](references/setup.md)) instead, whatever was asked.
+1. **Read memory:** `profile.yaml`, `criteria.md`, `context/index.md`, `jobs/index.md`.
 2. **Capture what the owner said** ([capture.md](references/capture.md)) before anything else.
 3. **Scan and score** every source in `profile.yaml` ([scan.md](references/scan.md)); store every
    relevant job ([files.md](references/files.md)).

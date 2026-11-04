@@ -1,7 +1,5 @@
 Vietnam only; setup suggests it only to people in Vietnam.
 
-Sources: adapted from bs-job-agents bots/research/skills/source-itviec/SKILL.md.
-
 # ITviec (itviec.com)
 
 Read-only. Plain `curl` with a browser user agent loads search and job pages with the full JD and no login; use it when the browser is not connected. Never click "Apply now", "Sign in to view salary" or "Save", and never sign in. Selectors below are **hints observed 2026-10**.

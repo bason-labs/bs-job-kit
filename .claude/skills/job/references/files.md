@@ -20,7 +20,7 @@ salary: null
 language: en
 status: ready
 fit: { score: 72, criteria: fit-v1 }
-cv: { score: 84, criteria: cv-v1, flagged: false, en: <figma frame URL>, vi: null }
+cv: { score: 84, criteria: cv-v1, flagged: false, en: jobs/<id>/cv-en.pdf, vi: null }
 found: 2026-10-22
 applied: null
 injection: false
@@ -29,7 +29,7 @@ cost: { tokens: 0, usd: null }
 ```
 
 Then these sections: `## Fit` (each criterion with points and its reason, then `Gaps:`),
-`## CV` (frame names, fact ids used, what was emphasised), `## CV evaluation` ([cv.md](cv.md)),
+`## CV` (what the route produced: Figma frame names, or `cv-<lang>.json` and `.html` for the pdf route, or whatever the custom route made; the fact ids used; what was emphasised), `## CV evaluation` ([cv.md](cv.md)),
 `## Notes` (anything else, dated). `jd.md` holds the full JD text as captured. `cv-<lang>.pdf` and
 `evidence/` appear when made.
 

@@ -1,5 +1,3 @@
-Sources: adapted from bs-job-agents bots/research/skills/source-wellfound/SKILL.md.
-
 # Wellfound (wellfound.com)
 
 Read-only. Role and job pages load as a guest, with plain `curl` or the browser. Never apply ("Apply", "Apply Now"), save, message a founder, edit the owner's profile or accept any prompt. Hints **observed 2026-10** on the real pages.
