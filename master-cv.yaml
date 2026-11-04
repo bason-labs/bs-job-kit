@@ -1,0 +1,21 @@
+# The owner's master CV facts. Every CV claim comes from a fact here; nothing is invented.
+# Example fact (invented), shape to follow:
+#
+#   - id: F-1
+#     type: experience          # experience | project | skill | education | certification
+#     text: Built the checkout API for a retail app used by 40,000 shoppers a month.
+#     textVi: Xây dựng API thanh toán cho ứng dụng bán lẻ với 40.000 người dùng mỗi tháng.
+#     tags: [Node.js, API, payments]
+#     org: Example Retail Co
+#     dates: 2022-03 to 2024-06
+#
+# Other languages use text_<lang> (for example text_de) beside text.
+version: 2
+contact:
+  name: null
+  email: null
+  phone: null
+  location: null
+  links: []
+headlineOptions: []
+facts: []

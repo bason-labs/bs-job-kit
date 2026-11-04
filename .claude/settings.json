@@ -1,0 +1,37 @@
+{
+  "enabledMcpjsonServers": [
+    "figma"
+  ],
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(date:*)",
+      "Bash(node bin/jobs.mjs:*)",
+      "Bash(node bin/figma-pdf.mjs:*)",
+      "Bash(node bin/cost.mjs:*)",
+      "Bash(node bin/cv-pdf.mjs:*)",
+      "Bash(node bin/pdf-text.mjs:*)",
+      "Bash(node bin/clock.mjs:*)",
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "mcp__claude-in-chrome__tabs_create_mcp",
+      "mcp__claude-in-chrome__tabs_close_mcp",
+      "mcp__claude-in-chrome__navigate",
+      "mcp__claude-in-chrome__get_page_text",
+      "mcp__claude-in-chrome__read_page",
+      "mcp__claude-in-chrome__find",
+      "mcp__figma__figma_get_status",
+      "mcp__figma__figma_execute",
+      "mcp__figma__figma_capture_screenshot",
+      "Edit(jobs/**)",
+      "Edit(context/**)",
+      "Edit(reports/**)",
+      "Edit(references/**)",
+      "Edit(profile.yaml)",
+      "Edit(criteria.md)",
+      "Edit(master-cv.yaml)",
+      "Edit(cv-rules.md)",
+      "Edit(cv-template.mjs)",
+      "Edit(cost.md)"
+    ]
+  }
+}
