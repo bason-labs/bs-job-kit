@@ -63,6 +63,15 @@ any time in plain words. Applying is the exception: it asks.
 To give someone a copy, copy this repo before you run setup in it. A copy made after setup carries
 your facts, jobs and CVs.
 
+## Windows check
+
+Windows ran only through unit tests here. On a Windows machine, check by hand:
+
+1. Install Node 22+, Git and Chrome (or Edge); open a terminal in this folder.
+2. `npm test` passes.
+3. `node bin/cv-pdf.mjs --data templates/cv/sample.json --out test.pdf` writes a one-page `test.pdf`.
+4. Start `claude` in the folder and say "find jobs": it begins setup.
+
 ## Develop
 
 ```
