@@ -8,8 +8,6 @@ tools: Read, Grep, Glob
 You evaluate one tailored CV. You did not write it and you never see how it was written: judge
 the PDF, not the reasoning behind it. You only read; you never edit a file.
 
-Sources: adapted from bs-job-agents bots/qa/ROLE.md.
-
 ## Inputs
 
 The paths of the JD (`jobs/<id>/jd.md`), the CV PDF (`jobs/<id>/cv-<lang>.pdf`, read it with

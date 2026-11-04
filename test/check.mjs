@@ -1,5 +1,5 @@
-// Content check for bs-job-lite: leftover wording from bs-job-agents (orchestrator, bots, tokens,
-// spec ids), skill and agent frontmatter, and broken relative links.
+// Content check for bs-job-kit: leftover wording from the app this engine replaced (orchestrator, bots,
+// tokens, spec ids), skill and agent frontmatter, and broken relative links.
 // Usage: node test/check.mjs [--root <dir>]. Prints `path:line rule message`; exit 0 clean, 1 findings.
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
@@ -31,10 +31,10 @@ const walk = (dir) =>
     : [];
 
 const frontmatter = (text) => {
-  const m = /^---\n([\s\S]*?)\n---\n/.exec(text);
+  const m = /^---\r?\n([\s\S]*?)\r?\n---\r?\n/.exec(text);
   if (!m) return null;
   const fields = {};
-  for (const line of m[1].split("\n")) {
+  for (const line of m[1].split(/\r?\n/)) {
     const kv = /^([A-Za-z_][\w-]*):\s*(.*)$/.exec(line);
     if (kv) fields[kv[1]] = kv[2].replace(/^["']|["']$/g, "").trim();
   }
@@ -63,7 +63,7 @@ export const checkTree = (root) => {
     }
 
     let fenced = false;
-    text.split("\n").forEach((line, i) => {
+    text.split(/\r?\n/).forEach((line, i) => {
       if (/^\s*(```|~~~)/.test(line)) fenced = !fenced;
       if (fenced || line.trimStart().startsWith("Sources:")) return;
       const hit = LEFTOVERS.find((re) => re.test(line));

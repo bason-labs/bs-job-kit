@@ -18,7 +18,8 @@ owner's own CV rules override the playbook.
 
 - Always make a CV in each language of `cvLanguages` (profile.yaml). Also make one in the JD's
   language when that language is in `cvJdLanguages`.
-- Write the whole CV in that language; technology names stay as they are. Facts in Vietnamese come
+- Write the whole CV in that language; technology names stay as they are. For a non-English CV set
+  `summaryHeading` and the section headings in the CV language (see `templates/cv/README.md`). Facts in Vietnamese come
   from `textVi`; any other language from `text_<lang>` when it exists; otherwise translate
   faithfully.
 - Example: `cvLanguages: [en]` with `cvJdLanguages: [vi]` gives a Vietnamese JD a Vietnamese and an
@@ -31,8 +32,9 @@ apply to every route.
 
 ### `pdf`
 
-- Write `jobs/<id>/cv-<lang>.json` (shape in `templates/cv/README.md`), one per language. The layout
-  is `cvLayout` (a name or a `./path.mjs`).
+- Write `jobs/<id>/cv-<lang>.json` (shape in `templates/cv/README.md`), one per language. `name`
+  and `contact` come from `master-cv.yaml` `contact` (`name`; `contact` is email, phone, location,
+  then `contact.links`), never from memory. The layout is `cvLayout` (a name or a `./path.mjs`).
 - Run `node bin/cv-pdf.mjs --data jobs/<id>/cv-<lang>.json --out jobs/<id>/cv-<lang>.pdf`. It
   prints `{out, html, bytes, pages, sha256, name}` or `{error, detail}`. Keep its JSON for the
   evaluator.
@@ -52,7 +54,7 @@ apply to every route.
 - Templates are the A4 frames on the other pages; never change them. Clone one by id into Drafts
   (`const copy = (await figma.getNodeByIdAsync(id)).clone(); drafts.appendChild(copy);`) and edit
   only the copy. Never walk a template's node tree; inspect the copy instead.
-- **Start point:** clone the frame in `figmaTemplateFrame` (the owner's template frame). Setup
+- **Start point:** clone the frame whose node id is in `figmaTemplateFrame` (the owner's template). Setup
   records in `cv-rules.md` once which text nodes hold the name, contact, summary and each section;
   use that. Never edit it; edit only the clone.
 - Name the copy `<COMPANY>_<ROLE>_<LANG>_v<n>`, `n` one more than any Drafts frame with that
@@ -70,8 +72,8 @@ apply to every route.
 
 - Follow the instruction in `cvCustom` (profile.yaml) in plain words. End with a PDF at
   `jobs/<id>/cv-<lang>.pdf`.
-- Get its facts with `node bin/pdf-text.mjs jobs/<id>/cv-<lang>.pdf` (the page count) and a SHA-256
-  hash of the file; keep both for the evaluator.
+- Get its facts with `node bin/pdf-text.mjs jobs/<id>/cv-<lang>.pdf` (it prints `bytes`, `sha256`,
+  `pages` and the text); keep that for the evaluator.
 - If the instruction cannot be followed with the tools at hand, skip the CV step and report it.
 
 ## Layout
@@ -81,8 +83,9 @@ apply to every route.
   one reading order (top to bottom, left column before right). A heading and its dates or
   technologies are one text node (styles by range), never separate boxes.
 - You may change section order, emphasis and which projects appear; fonts, colours and spacing
-  follow the layout or `cv-rules.md`. One column for any job applied through an ATS; two columns
-  only for a CV sent by email to a person ([cv-playbook.md](cv-playbook.md)).
+  follow the layout or `cv-rules.md`. The owner's chosen `cvLayout` is always used. The requirement is one
+  reading order, checked with `node bin/pdf-text.mjs --expect` (see the Order check), not one
+  column ([cv-playbook.md](cv-playbook.md)).
 
 ## Order check (every route)
 

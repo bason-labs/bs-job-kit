@@ -28,7 +28,7 @@ The company types and the tailoring rules are in `.claude/skills/job/references/
 | Keyword coverage | 30 | each JD must-have that a fact covers appears in the JD's own words (both spellings where they differ, e.g. "React (ReactJS)"), in Skills and backed by a bullet; then the nice-to-haves. Must-haves no fact covers are gaps, not deductions. Stuffing (a term repeated without support) loses points |
 | Title and summary match | 10 | the headline uses the JD's title words the facts support; the 2–3 line summary names the JD's title, the owner's years (unless omitted at the owner's request) and the strongest must-have matches |
 | Company-type fit | 20 | the CV follows the emphasis and format of the company's type in the playbook's company-type table |
-| Format and ATS | 20 | one page; one reading order (a single column for an ATS application); plain section headings; PDF text in reading order with every section |
+| Format and ATS | 20 | one page; one reading order (checked with the PDF text, whatever the layout); plain section headings; PDF text in reading order with every section |
 | Clarity and voice | 20 | concrete bullets (what the owner did + scope or a number from the facts + how), must-have bullets first; minus 2 per generic AI-style phrase ("spearheaded", "leveraged", "passionate", "results-driven", "cutting-edge", "dynamic", "seamless", "synergy" and the like), down to 0 |
 
 Hard fails (any one fails the CV whatever the score): invented claim, wrong language, wrong

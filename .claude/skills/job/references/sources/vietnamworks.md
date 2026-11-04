@@ -1,7 +1,5 @@
 Vietnam only; setup suggests it only to people in Vietnam.
 
-Sources: adapted from bs-job-agents bots/research/skills/source-vietnamworks/SKILL.md.
-
 # VietnamWorks (vietnamworks.com)
 
 Read-only. Never sign in, apply ("Nộp đơn"), save a job, follow a company or fill in any form. Hints **observed 2026-10** on the real pages. VietnamWorks renders its pages in the browser: give each page a moment to fill before you read it. Job pages also give the full JD to plain `curl`, and the search API lists jobs (below).

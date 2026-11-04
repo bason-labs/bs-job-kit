@@ -5,7 +5,6 @@
   "permissions": {
     "allow": [
       "Bash(git:*)",
-      "Bash(date:*)",
       "Bash(node bin/jobs.mjs:*)",
       "Bash(node bin/figma-pdf.mjs:*)",
       "Bash(node bin/cost.mjs:*)",

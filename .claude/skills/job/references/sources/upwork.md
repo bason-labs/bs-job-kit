@@ -1,5 +1,3 @@
-Sources: adapted from bs-job-agents bots/research/skills/source-upwork/SKILL.md.
-
 # Upwork (upwork.com) — find only
 
 Read-only and **find only**. Upwork jobs reach the owner as review cards marked "find only — apply yourself on Upwork"; the app never applies there. So **never** click "Apply now", "Submit a proposal", "Send a proposal", "Buy Connects", "Save job", "Flag as inappropriate", never message a client, never change the owner's profile or settings, never spend or buy Connects. Read in the owner's Chrome, where they are signed in.

@@ -27,7 +27,9 @@ if (!fileKey) {
   process.exit(1);
 }
 
-const [cmd, ...cmdArgs] = (args.server ?? DEFAULT_SERVER).split(/\s+/).filter(Boolean);
+const serverArgv = (args.server ?? DEFAULT_SERVER).split(/\s+/).filter(Boolean);
+// On Windows npx is a .cmd script, which only cmd.exe can start (still an argv array, no shell string).
+const [cmd, ...cmdArgs] = process.platform === "win32" ? ["cmd.exe", "/d", "/s", "/c", ...serverArgv] : serverArgv;
 const server = spawn(cmd, cmdArgs, { stdio: ["pipe", "pipe", "ignore"], env: { ...process.env, LOG_LEVEL: "warn" } });
 
 const fail = (error, detail) => {
@@ -75,7 +77,7 @@ const body = (result) => {
   }
 };
 
-// The old app's export snippet (bs-job-agents bridges/figma/plugin-code.ts exportPdfCode).
+// Export snippet run inside Figma: one frame on the Drafts page to PDF bytes.
 const exportCode = (id) => `// bs-bridge:op=export-pdf
 const id = ${JSON.stringify(id)};
 const draftsName = "Drafts";
@@ -95,7 +97,7 @@ const connected = (b) => {
 
 const main = async () => {
   try {
-    await request("initialize", { protocolVersion: "2025-06-18", capabilities: {}, clientInfo: { name: "bs-job-lite", version: "1" } }, 30000);
+    await request("initialize", { protocolVersion: "2025-06-18", capabilities: {}, clientInfo: { name: "bs-job-kit", version: "1" } }, 30000);
   } catch (e) {
     return fail("figma-unavailable", `the Figma MCP server did not start: ${e.message}`);
   }

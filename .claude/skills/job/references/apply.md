@@ -1,7 +1,5 @@
 # Apply for the owner (only when they ask)
 
-Sources: adapted from bs-job-agents bots/apply/ROLE.md.
-
 Runs only when their message names the job ("apply to NovaPay for me"). Never for any other job, and
 never as part of a scan. Applying never guesses: when something is missing, stop and ask them.
 

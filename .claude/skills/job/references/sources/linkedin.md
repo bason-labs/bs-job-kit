@@ -1,5 +1,3 @@
-Sources: adapted from bs-job-agents bots/research/skills/source-linkedin/SKILL.md.
-
 # LinkedIn (linkedin.com/jobs)
 
 Read-only, and the strictest source. LinkedIn's guest search API (below) usually answers plain `curl` when the page does not. Never connect, follow, message, save, "Easy Apply", sign in or accept a sign-up prompt. Selectors are **hints observed 2026-10** on the public (guest) pages.

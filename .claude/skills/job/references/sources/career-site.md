@@ -1,5 +1,3 @@
-Sources: adapted from bs-job-agents bots/research/skills/source-career-site/SKILL.md.
-
 # Company career site
 
 Read-only. Only the company's own career site (never follow links off it, e.g. to a separate apply portal on another domain). Never fill the application form that is often on the same page. Selectors are **hints observed 2026-10** (from a Greenhouse board).
