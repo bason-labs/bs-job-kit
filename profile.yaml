@@ -1,0 +1,29 @@
+# What the owner looks for. Edited by asking in chat (the job skill's capture step).
+roles: []
+locations: []
+workModes: []
+seniority: []
+minSalary: null
+currency: null
+# A source is a known id or a board URL.
+sources: [linkedin]
+includeKeywords: []
+excludeKeywords: []
+excludeCompanies: []
+languages: []
+timezoneOverlap: null
+fitThreshold: 60
+maxCvs: 3
+maxPerSource: 15
+salaryPolicy: blank_if_optional
+salaryAmount: null
+# CV output: pdf | figma | custom
+cvRoute: pdf
+# classic | sidebar | band | timeline | ./cv-template.mjs
+cvLayout: classic
+cvLanguages: [en]
+cvJdLanguages: []
+cvCustom: null
+chromePath: null
+figmaFileKey: null
+figmaTemplateFrame: null

@@ -1,0 +1,65 @@
+{
+  "lang": "en",
+  "name": "Jane Nguyễn",
+  "headline": "Senior Frontend Engineer · React, TypeScript, design systems",
+  "contact": ["jane.nguyen@example.com", "+84 90 000 0000", "Da Nang, Vietnam", "github.com/jn-example"],
+  "photo": null,
+  "accent": "#2f5fb3",
+  "summary": "Frontend engineer with eight years of building fast, accessible web apps for payments and travel products. Leads small teams, owns design systems end to end and likes turning slow, fragile screens into simple, well-tested ones.",
+  "sections": [
+    {
+      "heading": "Experience",
+      "side": false,
+      "entries": [
+        {
+          "title": "Senior Frontend Engineer, Lotus Ledger",
+          "meta": "Da Nang · 2022 – present",
+          "text": "Payments dashboard used by 4,000 small shops.",
+          "bullets": [
+            "Led a team of four through a move from a legacy jQuery app to React and TypeScript.",
+            "Built the shared design system of 60 components, with visual and accessibility tests.",
+            "Cut the dashboard's first load from 6.1 s to 1.8 s with code splitting and caching."
+          ]
+        },
+        {
+          "title": "Frontend Engineer, Mekong Maps",
+          "meta": "Ho Chi Minh City · 2019 – 2022",
+          "text": "Trip planner for independent travellers.",
+          "bullets": [
+            "Built the offline-first itinerary editor with service workers and IndexedDB.",
+            "Introduced end-to-end tests that caught release blockers before they shipped."
+          ]
+        },
+        {
+          "title": "Web Developer, Paper Lantern Studio",
+          "meta": "Hue · 2017 – 2019",
+          "bullets": [
+            "Shipped twelve marketing sites and booking flows for hotels and restaurants."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Education",
+      "side": false,
+      "entries": [
+        { "title": "B.Sc. Computer Science, Central Coast University", "meta": "2013 – 2017" }
+      ]
+    },
+    {
+      "heading": "Skills",
+      "side": true,
+      "items": ["React", "TypeScript", "Next.js", "CSS and design systems", "Accessibility (WCAG 2.2)", "Testing: Vitest, Playwright", "Node.js", "Performance tuning"]
+    },
+    {
+      "heading": "Languages",
+      "side": true,
+      "items": ["Vietnamese (native)", "English (fluent)", "Japanese (basic)"]
+    },
+    {
+      "heading": "Links",
+      "side": true,
+      "items": ["janenguyen.example.com", "github.com/jn-example"]
+    }
+  ]
+}

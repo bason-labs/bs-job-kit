@@ -1,0 +1,3 @@
+# Scan
+
+Read the board.
