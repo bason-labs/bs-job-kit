@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="bs-job-kit: your job search, run from a chat">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1b33"/>
+      <stop offset="1" stop-color="#1f3d73"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="300" rx="18" fill="url(#bg)"/>
+  <circle cx="1080" cy="40" r="140" fill="#4a7bd0" opacity="0.18"/>
+  <circle cx="1150" cy="250" r="90" fill="#7fb2ff" opacity="0.12"/>
+  <g font-family="-apple-system, 'Segoe UI', Inter, Helvetica, Arial, sans-serif">
+    <text x="64" y="118" fill="#ffffff" font-size="64" font-weight="700">bs-job-kit</text>
+    <text x="66" y="162" fill="#c9d7f2" font-size="24">Your job search in plain files, run from a chat with Claude or Codex.</text>
+    <g font-size="18" font-weight="600" fill="#ffffff">
+      <rect x="64" y="200" width="118" height="40" rx="20" fill="url(#chip)" stroke="#ffffff" stroke-opacity="0.25"/>
+      <text x="123" y="226" text-anchor="middle">🔎 Find</text>
+      <rect x="196" y="200" width="118" height="40" rx="20" fill="url(#chip)" stroke="#ffffff" stroke-opacity="0.25"/>
+      <text x="255" y="226" text-anchor="middle">📊 Score</text>
+      <rect x="328" y="200" width="150" height="40" rx="20" fill="url(#chip)" stroke="#ffffff" stroke-opacity="0.25"/>
+      <text x="403" y="226" text-anchor="middle">📄 Tailor CV</text>
+      <rect x="492" y="200" width="130" height="40" rx="20" fill="url(#chip)" stroke="#ffffff" stroke-opacity="0.25"/>
+      <text x="557" y="226" text-anchor="middle">✅ Review</text>
+      <rect x="636" y="200" width="118" height="40" rx="20" fill="url(#chip)" stroke="#ffffff" stroke-opacity="0.25"/>
+      <text x="695" y="226" text-anchor="middle">📨 Apply</text>
+    </g>
+  </g>
+</svg>
