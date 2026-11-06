@@ -138,3 +138,7 @@ npm run release   # compiles bin/ into bs-job for macOS (Apple, Intel) and Windo
 In a source checkout the skill's `bs-job <command>` runs as `node bin/bs-job.mjs <command>`.
 
 </details>
+
+## License
+
+[MIT](LICENSE)
